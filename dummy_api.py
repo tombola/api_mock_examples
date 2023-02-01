@@ -1,15 +1,18 @@
-from bottle import route, run, template, get
+from flask import Flask
 
-@route('/')
-def index(name):
+API_URL = "http://127.0.0.1:5000"
+PRODUCTS_API_URL = API_URL + "/products"
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
     return "Test api endpoint is running"
 
-@get('/products')
+@app.route("/products")
 def serve_json():
     return {
         "products": [
             {"name": "TST", "stock_quantity": 10}
         ]
-    }
-
-run(host='localhost', port=8080)
+    } #, 200, {'Content-Type': 'aplication/json; charset=utf-8'}
