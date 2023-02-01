@@ -11,6 +11,7 @@ from dummy_api import API_URL, PRODUCTS_API_URL
 import dummy_service as service
 
 
+@pytest.mark.dummy
 @responses.activate
 def test_responses_recording():
     responses.patch(API_URL)

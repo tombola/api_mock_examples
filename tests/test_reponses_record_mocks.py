@@ -5,6 +5,7 @@ from responses import _recorder
 import dummy_service as service
 from utils import explore
 
+@pytest.mark.record
 @_recorder.record(file_path="recorded_responses/test_responses_recording.toml")
 def test_responses_recording_record():
     response = service.get_products()
